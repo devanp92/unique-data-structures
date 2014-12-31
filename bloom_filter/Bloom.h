@@ -1,5 +1,5 @@
-#ifndef __BLOOM.H__
-#define __BLOOM.H__
+#ifndef __BLOOM_H__
+#define __BLOOM_H__
 
 /* Bloom Struct
  *
@@ -12,16 +12,16 @@
  * int bytes - 
  *
  */
-struct bloom {
+
+struct bloom;
+
+typedef struct bloom {
     unsigned char* bloomFilter;
     int numHashes;
     int size;
     double falsePositiveRate;
-    int bits, bytes;
-    int count;
-}
+} Bloom;
 
-typedef struct bloom Bloom;
 
 /* Init the bloom filter.
  *
@@ -39,31 +39,48 @@ typedef struct bloom Bloom;
  *
  * Given m and n, the optimal value for k is (m/n)ln(2).
  * http://billmill.org/bloomfilter-tutorial 
+ *
  */
 
-bool init(Bloom *bloom, int size, double falsePositiveRate); 
+int init(Bloom*, int, double);
 
 /* Inserts a given element.
  * 
- * @param
- * @return bool - False if not initialized or falsePositiveRate, true otherwise.
+ * @param bloom - Bloom to insert key into
+ * @param input - key to input
+ *
+ * @return int - False if not initialized or falsePositiveRate, true otherwise.
  *
  */
-bool put();
+int put(Bloom *bloom, const char* input);
 
-/* Returns the bit at the current element
+/* Returns if the string is either definitely not or it might be in the bloom filter.
  *
- * @param position - element position
+ * @param bloom - Bloom to get key from
+ * @param input - key to search for
  *
- * @return bit - returns 0 or 1
+ * @return value - 1 if 'might be' in bloom filter, 0 otherwise
+ *
  */
-int getBit(Bloom *bloom, int position);
+int get(Bloom *bloom, const char* input);
 
-/* Sets the bit at the given position
+/* Hashes the input string
+ * @param size - size of the hash array
+ * @param input - string to hash
  *
- * @param position - element position
+ * @return hashes - array for hashes to be inserted
  *
+ */
+
+unsigned int* hashInput(unsigned int* hashes, char *input);
+
+/* Frees the memory
+ *
+ * @param bloom - bloom to free
+ * 
  * @return value - error code (if any)
+ *
  */
-int setBit(Bloom *bloom, int position);
+
+int destruct(Bloom *bloom);
 #endif
