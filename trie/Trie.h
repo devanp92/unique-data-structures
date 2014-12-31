@@ -1,13 +1,16 @@
-#ifndef __TRIE.H__
-#define __TRIE.H__
+#ifndef __TRIE_H__
+#define __TRIE_H__
 #include "Node.h"
+#include <stdlib.h>
+#include <string.h>
 
-struct trie {
+struct Trie;
+
+typedef struct trie {
     Node *root;
-    int val;
-}
+    int count;
+} Trie;
 
-typedef struct trie Trie;
 
 /* Initialized with empty root and count */
 void init(Trie* temp);

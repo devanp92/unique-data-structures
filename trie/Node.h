@@ -1,13 +1,13 @@
-#ifndef __NODE.H__
-#define __NODE.H__
-#define ALPHABET_SIZE ( 26 )
+#ifndef __NODE_H__
+#define __NODE_H__
+#define ALPHABET_SIZE 26
 
+struct Node;
 
-struct node {
+typedef struct node {
     int isLeaf;
-    node* char[ALPHABET_SIZE];
-}
+    struct node *children[ALPHABET_SIZE];
+} Node;
 
-typedef struct node Node;
 
 #endif

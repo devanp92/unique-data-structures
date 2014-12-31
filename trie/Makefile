@@ -1,17 +1,20 @@
-CC = gcc
-TARGET = trie
-OBJECTS = $(patsubst %.c,%.o, $(wildcard *.c))
-
+CC=gcc
+CCFLAGS=-Wall
+LDFLAGS=
+SOURCES=$(wildcard *.c)
+OBJECTS=$(SOURCES:.c=.o)
+	TARGET=driver
+	 
+all: $(TARGET)
+	 
 $(TARGET): $(OBJECTS)
-	@echo "** Linking Executable"
-	$(CC) $(OBJECTS) -o $(TARGET)
-
-clean:
-	@rm -f *.o *~
-
-veryclean: clean
-	@rm -f $(TARGET)
-
+	        $(CC) $(LDFLAGS) -o $@ $^
+			 
+%.o: %.c %.h
+	        $(CC) $(CCFLAGS) -c $<
+			 
 %.o: %.c
-	@echo "** Compiling C Source" 
-	$(CC) -c $<
+	        $(CC) $(CCFLAGS) -c $<
+			 
+clean:
+	        rm -f *.o $(TARGET)
