@@ -1,6 +1,6 @@
 CC=gcc
 CCFLAGS=-Wall
-LDFLAGS=
+LDFLAGS= -g
 SOURCES=$(wildcard *.c)
 OBJECTS=$(SOURCES:.c=.o)
 	TARGET=driver

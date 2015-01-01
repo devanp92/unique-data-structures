@@ -16,10 +16,9 @@
 struct bloom;
 
 typedef struct bloom {
-    unsigned char* bloomFilter;
+    unsigned int* bloomFilter;
     int numHashes;
     int size;
-    double falsePositiveRate;
 } Bloom;
 
 
@@ -42,7 +41,7 @@ typedef struct bloom {
  *
  */
 
-int init(Bloom*, int, double);
+int init(Bloom* bloom, int size, int numHashes);
 
 /* Inserts a given element.
  * 
@@ -52,7 +51,7 @@ int init(Bloom*, int, double);
  * @return int - False if not initialized or falsePositiveRate, true otherwise.
  *
  */
-int put(Bloom *bloom, const char* input);
+void put(Bloom *bloom, const char* input);
 
 /* Returns if the string is either definitely not or it might be in the bloom filter.
  *
@@ -64,16 +63,6 @@ int put(Bloom *bloom, const char* input);
  */
 int get(Bloom *bloom, const char* input);
 
-/* Hashes the input string
- * @param size - size of the hash array
- * @param input - string to hash
- *
- * @return hashes - array for hashes to be inserted
- *
- */
-
-unsigned int* hashInput(unsigned int* hashes, char *input);
-
 /* Frees the memory
  *
  * @param bloom - bloom to free
@@ -83,4 +72,7 @@ unsigned int* hashInput(unsigned int* hashes, char *input);
  */
 
 int destruct(Bloom *bloom);
+
+void setBit(Bloom* bloom, int position);
+int getBit(Bloom* bloom, int position);
 #endif

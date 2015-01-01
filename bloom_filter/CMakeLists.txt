@@ -7,7 +7,7 @@ set(SOURCE_FILES
     Bloom.c
     Bloom.h
     Driver.c
-    GeneralHashFunctions.c
-    GeneralHashFunctions.h)
+    PMurHash.c
+    PMurHash.h)
 
 add_executable(bloom_filter ${SOURCE_FILES})

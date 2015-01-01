@@ -16,19 +16,30 @@
  */
 #include "Bloom.h"
 #include <stdio.h>
+#include <string.h>
 
 int main(){
-
     Bloom bloom;
-    init(&bloom, 50, .5);
+//    memset(bloom, 0, sizeof(Bloom));
+    init(&bloom, 100, 3);
+
+    printf("---------------------------------------\n\n");
+
+    put(&bloom, "H");
+    put(&bloom, "m");
+    put(&bloom, "n");
+    put(&bloom, "i");
+    put(&bloom, "D");
+
+    printf("---------------------------------------\n\n");
+
+    get(&bloom, "S");
+    get(&bloom, "H");
+    get(&bloom, "m");
+    get(&bloom, "e");
+
     printf("---------------------------------------\n");
-    put(&bloom, "Hi");
-    put(&bloom, "my");
-    put(&bloom, "name");
-    put(&bloom, "is");
-    put(&bloom, "Devan");
-    printf("---------------------------------------\n");
-    get(&bloom, "Something");
-//    destruct(&bloom);
+
+    destruct(&bloom);
     return 0;
 }
