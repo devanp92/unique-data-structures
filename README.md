@@ -23,7 +23,7 @@ _All descriptions have been taken by the wikipedia articles_
 
 To run, just:
 	
-	cd /any/data/structure/folder
+	cd ./any/data/structure/folder
 	make
 	./driver
 	
