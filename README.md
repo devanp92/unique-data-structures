@@ -7,11 +7,11 @@ I have created this repo to practice my C. Since implementing all of the standar
 
 So far, I have:
 
-* Bloom Filter
-* (Trie)[https://en.wikipedia.org/wiki/Trie]
-* Doubly Linked List
-* Two Four Tree
-* Queap
+* [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter)
+* [Trie](https://en.wikipedia.org/wiki/Trie)
+* [Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list)
+* [Two Four Tree](https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree)
+* [Queap](https://en.wikipedia.org/wiki/Queap)
 
 To run, just:
 	
