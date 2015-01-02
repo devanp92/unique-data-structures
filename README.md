@@ -8,7 +8,7 @@ I have created this repo to practice my C. Since implementing all of the standar
 So far, I have:
 
 * Bloom Filter
-* Trie
+* (Trie)[https://en.wikipedia.org/wiki/Trie]
 * Doubly Linked List
 * Two Four Tree
 * Queap
