@@ -11,7 +11,7 @@ So far, I have:
 	* A Bloom filter is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970, that is used to test whether an element is a member of a set. 
 * [Trie](https://en.wikipedia.org/wiki/Trie)
 	* In computer science, a trie, also called digital tree and sometimes radix tree or prefix tree (as they can be searched by prefixes), is an ordered tree data structure that is used to store a dynamic set or associative array where the keys are usually strings. 
-* [Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list) [_needed for queap_]
+* [Doubly Linked List](https://en.wikipedia.org/wiki/Doubly_linked_list) [_needed for Queap_]
 	* In computer science, a doubly-linked list is a linked data structure that consists of a set of sequentially linked records called nodes.
 * [Two Four Tree](https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree)
 	* In computer science, a 2–3–4 tree (also called a 2–4 tree) is a self-balancing data structure that is commonly used to implement dictionaries.
