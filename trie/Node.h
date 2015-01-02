@@ -7,7 +7,7 @@ struct Node;
 typedef struct node {
     int isLeaf;
     struct node *children[ALPHABET_SIZE];
-} Node;
+};
 
 
 #endif

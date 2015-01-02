@@ -29,8 +29,8 @@
       <file leaf-file-name="Driver.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Driver.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.642562" vertical-offset="34" max-vertical-offset="750">
-              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.5805785" vertical-offset="34" max-vertical-offset="750">
+              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
               <folding>
                 <element signature="e#441#459#0" expanded="true" />
               </folding>
@@ -174,7 +174,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="23" width="720" height="828" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3254282" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -303,8 +303,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Driver.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.642562" vertical-offset="34" max-vertical-offset="750">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.5805785" vertical-offset="34" max-vertical-offset="750">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding>
             <element signature="e#441#459#0" expanded="true" />
           </folding>
