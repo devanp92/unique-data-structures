@@ -41,8 +41,8 @@ typedef struct queap {
     int size;
     int numElementsInT;
     int minElementInT;
-    QueapTree qT;
-    LinkedList dLL;
+    QueapTree queap_tree;
+    LinkedList linked_list;
 } Queap;
 
 
