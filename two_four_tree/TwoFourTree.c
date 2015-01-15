@@ -15,30 +15,33 @@
  * =====================================================================================
  */
 #include "TwoFourTree.h"
+#include <assert.h>
 
-void init(tft* t) {
-    printf("Initializing Two Four Tree\n");
-    t = calloc(1, sizeof(t));
+tft* init() {
+    printf("Initializing Two Four Tree.\n");
+    tft *t = malloc(sizeof(tft));
+    t->root = initNode();
     t->size = 0;
+    assert(0 == t->size);
+    return t;
 }
 
 node* insertFirst(tft* t, int element) {
-    node* temp = t->root;
-    if(temp->numChildren == 3) {
-        node* temp1 = calloc(1, sizeof(node));
-        temp1->children[0] = t->root;
-        temp1->isLeaf = 0;
-        t->root = temp1;
-        splitTree(t, temp1, 0);
-        return insert(t, temp1, element);
+    node* temp;
+    temp = initNode();
+    if(3 == t->root->numChildren) {
+        temp->children[0] = t->root;
+        temp->isLeaf = 0;
+        t->root = temp;
+        splitTree(temp, 0);
+        return insert(t, temp, element);
     } else {
         return insert(t, t->root, element);
     }
-    t->size++;
 }
 node* insert(tft* t, node* n, int element) {
     int i = 0;
-    while ( i < n->numChildren && element > n->keys[i]) {
+    while (i < n->numChildren && element > n->keys[i]) {
         i++;
     }
     if (n->isLeaf) {
@@ -48,10 +51,11 @@ node* insert(tft* t, node* n, int element) {
         }
         n->keys[j] = element;
         n->numChildren++;
+        t->size++;
         return n;
     } else {
-        if (n->children[i]->numChildren == 1) {
-            splitTree(t, n , i);
+        if (3 == n->children[i]->numChildren) {
+            splitTree(n , i);
             if (element > n->keys[i]) {
                 i++;
             }
@@ -60,9 +64,11 @@ node* insert(tft* t, node* n, int element) {
     }
 }
 
-void splitTree(tft* t, node* n, int position) {
-    node* temp = n->children[position];
-    node* cur = calloc(1, sizeof(node));
+void splitTree(node* n, int position) {
+    node* temp;
+    temp = n->children[position];
+    node* cur;
+    cur = initNode();
     int i;
     for (i = n->numChildren; i > position; i--) {
         n->children[i+1] = n->children[i];
@@ -80,7 +86,7 @@ void splitTree(tft* t, node* n, int position) {
         temp->numChildren = 1;
     } else {
         cur->isLeaf = 0;
-        for ( i = 0; i < 1; i++) {
+        for (i = 0; i < 1; i++) {
             cur->keys[i] = temp->keys[i + 2];
             cur->children[i] = temp->children[i + 2];
             cur->numChildren++;
@@ -90,6 +96,62 @@ void splitTree(tft* t, node* n, int position) {
     }
 }
 
+node* search(node* n, int element) {
+    if(n->isLeaf) {
+        return n;
+    }
+    int i;
+    i = 0;
+    while(i < n->numChildren && element > n->keys[i]) {
+        i++;
+    }
+    if(element == n->keys[i]) {
+        return n;
+    } else{
+        return search(n->children[i], element);
+    }
+}
+
 int getSize(tft* t){
-    return t->size;
+    return (!t) ? -1 : t->size;
+}
+
+node* initNode(){
+    node* temp = malloc(sizeof(node));
+    int i;
+    for(i = 0; i < 3; i++){
+        temp->children[i] = 0;
+        temp->keys[i] = 0;
+    }
+    temp->children[3] = 0;
+    temp->numChildren = 0;
+    temp->isLeaf = 1;
+    return temp;
+}
+
+void destruct(tft* t, node* n) {
+    if(!t->root) {
+        return;
+    }
+    destruct(t, t->root->children[0]);
+    destruct(t, t->root->children[1]);
+    destruct(t, t->root->children[2]);
+    destruct(t, t->root->children[3]);
+    free(n);
+}
+
+void print(node* n) {
+    if (!n) {
+        printf("Sorry no node there.\n");
+        return;
+    } else if (1 > n->numChildren) {
+        printf("There are no keys in this node.\n");
+        return;
+    }
+    printf("Node's children are: \n");
+    int i;
+    for (i = 0; i < n->numChildren - 1; i++) {
+        printf("Child %d is: %d.\n", i, n->keys[i]);
+    }
+    printf("Child %d is: %d.\n", i, n->keys[i]);
 }

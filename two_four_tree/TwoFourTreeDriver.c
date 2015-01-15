@@ -18,16 +18,24 @@
 #include <assert.h>
 
 int main(){
-    tft* t;
     printf("Initializing.\n");
-    init(&t);
+    tft *t = init();
+    printf("Size is: %d.\n", getSize(t));
+    assert(0 == getSize(t));
     printf("----------------------------\n");
 
     int i;
-    for(i = 0; i < 6; i++){
+    for(i = 0; i < 10; i++){
         printf("Inserting %d into Two Four Tree.\n", i);
-
-        insertFirst(&t, i);
+        insertFirst(t, i);
+        assert((i+1) == getSize(t));
     }
+
+    node* n = search(t->root, 1);
+    printf((char const *) n->isLeaf);
+
+    printf("----------------------------\n");
+    print(t->root);
+
     return 0;
 }

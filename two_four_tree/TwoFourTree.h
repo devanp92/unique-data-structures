@@ -35,9 +35,9 @@ typedef struct two_four_tree {
     int size;
 } tft;
 
-void init(tft* t);
+tft* init();
 
-int search(tft* t, int element);
+node* search(node* n, int element);
 
 int delete(tft* t, int element);
 
@@ -45,8 +45,14 @@ node* insertFirst(tft* t, int element);
 
 node* insert(tft* t, node* n, int element);
 
-void splitTree(tft* t, node* n, int position);
+void splitTree(node* n, int position);
 
 int getSize(tft* t);
+
+node* initNode();
+
+void destruct(tft* t, node* n);
+
+void print(node* n);
 
 #endif
