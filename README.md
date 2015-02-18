@@ -3,7 +3,7 @@ Unique Data Structures
 
 This is a repository for irregular data structure implementations written in C.
 
-I have created this repo to practice my C. Since implementing all of the standard data structures (ArrayList, LinkedList, HashMap, Binary Tree, etc.), are boring and overdone, I wanted to practice on new ones!
+I have created this repo to practice my C. Since implementing all of the standard data structures (ArrayList, LinkedList, HashMap, Binary Tree, etc.), are boring and overdone, I wanted to practice on new ones! I've written on this [here](http://www.devanpatel.me/implementing-unique-data-structures-in-c/)
 
 So far, I have:
 
